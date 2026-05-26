@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(-45deg,
+      #ffd6e8,
+      #ffe0f0,
+      #e0c3fc,
+      #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+}
+
+.container {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 44px;
+  color: #ffffff;
+  margin-bottom: 35px;
+  text-shadow: 0px 4px 20px rgba(0,0,0,0.25);
+  animation: floating 3s ease-in-out infinite;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+input {
+  width: 340px;
+  padding: 16px;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Fredoka', sans-serif;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  color: #6a1b4d;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #ad1457;
+}
+
+input:focus {
+  transform: scale(1.05);
+}
+
+button {
+  padding: 16px 28px;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(to right, #ff4d8d, #7b61ff);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 8px 20px rgba(123,97,255,0.35);
+}
+
+button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0px 12px 30px rgba(255,77,141,0.4);
+}
+
+.card {
+  width: 90%;
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 28px;
+  background: rgba(233, 220, 220, 0.22);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.3);
+  text-align: left;
+  box-shadow: 0px 12px 40px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+  animation: cardPop 0.8s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 0px 15px 45px rgba(255, 20, 147, 0.25);
+}
+
+.card h2 {
+  color: rgb(227, 11, 112);
+  font-size: 34px;
+  margin-bottom: 18px;
+  text-shadow: 0px 2px 8px rgba(214, 95, 178, 0.858);
+}
+
+.card p {
+  .label {
+  color: #ff1493(0, 71%, 81%);
+}
+  color: #282d2d;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #d81b60;
+  letter-spacing: 0.5px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: linear-gradient(to right, #7b61ff, #ff4d8d);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+}
+
+.card a:hover {
+  transform: scale(1.06);
+}
+
+.no-course {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 25px;
+  animation: floating 2s ease-in-out infinite;
+}
+
+/* Animated background bubbles */
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+body::before {
+  background: rgba(255, 77, 141, 0.35);
+  top: -120px;
+  left: -120px;
+  animation: bubbleMove 8s ease infinite alternate;
+}
+
+body::after {
+  background: rgba(123, 97, 255, 0.35);
+  bottom: -120px;
+  right: -120px;
+  animation: bubbleMove2 10s ease infinite alternate;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes cardPop {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes bubbleMove {
+  from {
+    transform: translateX(0px) translateY(0px);
+  }
+
+  to {
+    transform: translateX(80px) translateY(50px);
+  }
+}
+
+@keyframes bubbleMove2 {
+  from {
+    transform: translateX(0px) translateY(0px);
+  }
+
+  to {
+    transform: translateX(-70px) translateY(-40px);
+  }
+}
